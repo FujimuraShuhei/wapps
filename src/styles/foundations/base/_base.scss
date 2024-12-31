@@ -1,0 +1,257 @@
+@use 'src/styles/global' as *;
+
+/* Document
+ * ========================================================================== */
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  width: 100%;
+  font-family: $font-family-noto-sans-base;
+  margin: 0;
+  background: $color-bg-001;
+  color: #222;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+.container {
+  @include min-screen(lg) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 64px;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+  @include min-screen(xl) {
+    max-width: 1200px;
+  }
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+}
+
+/* Sections
+* ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
+/* Grouping content
+* ========================================================================== */
+
+ul,
+ol {
+  padding-left: 0;
+}
+li {
+  list-style: none;
+}
+
+/* Link
+* ========================================================================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Embedded content
+ * ========================================================================== */
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Forms
+ * ========================================================================== */
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+}
+
+:where(button) {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.active {
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mainContainer {
+  padding: 20px;
+  @include min-screen(lg) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    max-width: 1320px;
+    margin-inline: auto;
+    gap: 24px;
+    padding: 40px;
+  }
+  @include min-screen(xl) {
+    gap: 40px;
+  }
+}
+
+.article {
+  max-width: 800px;
+  width: 100%;
+}
+
+.title {
+  font-size: 24px;
+  @include min-screen(lg) {
+    font-size: 32px;
+  }
+}
+
+.mainVisual {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 40px;
+}
+
+.innerContainer {
+  width: 100%;
+  @include min-screen(lg) {
+    max-width: 640px;
+  }
+  @include min-screen(xl) {
+    max-width: 800px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+}
+
+.content {
+  letter-spacing: 0.01em;
+  line-height: 1.8;
+  p {
+    margin-bottom: 16px;
+  }
+  img {
+    max-width: 800px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  .button-01 {
+    padding: 16px 48px;
+    border-radius: 90%;
+    background: #333;
+    color: #fff;
+  }
+  pre {
+    background: #333;
+    color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+  }
+}
+
+.publishedAt {
+  font-family: 'Avenir Next', sans-serif;
+  color: #f9f9f9;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  line-height: 100%;
+  font-weight: 700;
+  span {
+    font-style: normal;
+    margin-right: 10px;
+  }
+}
+
+.blogList {
+  display: grid;
+  padding: 0;
+  gap: 40px;
+  @include min-screen(lg) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px 24px;
+  }
+  li {
+    list-style: none;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    margin-top: 4px;
+  }
+  p {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
+
+/* ブログ一覧 */
+.blogItem {
+  .blogCard {
+    overflow: hidden;
+  }
+  @include min-screen(lg) {
+    img {
+      aspect-ratio: 16 / 9;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    img {
+      transform: scale(1.15);
+      transform-origin: center;
+    }
+  }
+}
